@@ -12,6 +12,7 @@ public class Radio {
 
     public Radio(int stationsCount) {
         this.maxCarrentStation = stationsCount;
+        this.minCarrentStation = 1;
     }
 
     public int getCarrentStation() {
@@ -19,7 +20,7 @@ public class Radio {
     }
 
     public void setCarrentStation(int carrentStation) {
-        if (carrentStation < stationsCount) {
+        if (carrentStation < minCarrentStation) {
             return;
         }
         if (carrentStation > maxCarrentStation) {
@@ -35,12 +36,12 @@ public class Radio {
         if (carrentStation != maxCarrentStation) {
             carrentStation++;
         } else {
-            carrentStation = stationsCount + 1;
+            carrentStation = minCarrentStation;
         }
     }
 
     public void prev() {
-        if (carrentStation != stationsCount + 1) {
+        if (carrentStation != minCarrentStation) {
             carrentStation--;
         } else {
             carrentStation = maxCarrentStation;
