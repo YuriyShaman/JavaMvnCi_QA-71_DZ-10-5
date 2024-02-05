@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 public class RadioWithParametrTest {
 
 
-    @Test
+    @Testt
     public void prevCarStTransitMinStation() {
         Radio radio = new Radio(15);
         radio.setCarrentStation(1);
