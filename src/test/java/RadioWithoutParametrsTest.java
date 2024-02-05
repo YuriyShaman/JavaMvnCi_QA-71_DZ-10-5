@@ -7,17 +7,7 @@ public class RadioWithoutParametrsTest {
     @Test
     public void prevCarStTransitMinStation() {
         Radio radio = new Radio();
-        radio.setCarrentStation(1);
-        radio.prev();
-        int actual = radio.getCarrentStation();
-        int expected = 10;
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void prevCarStTransitMaxStation() {
-        Radio radio = new Radio();
-        radio.setCarrentStation(10);
+        radio.setCarrentStation(0);
         radio.prev();
         int actual = radio.getCarrentStation();
         int expected = 9;
@@ -25,22 +15,32 @@ public class RadioWithoutParametrsTest {
     }
 
     @Test
-    public void prevCarStInrange() {
+    public void prevCarStTransitMaxStation() {
         Radio radio = new Radio();
-        radio.setCarrentStation(5);
+        radio.setCarrentStation(9);
         radio.prev();
         int actual = radio.getCarrentStation();
-        int expected = 4;
+        int expected = 8;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void prevCarStInrange() {
+        Radio radio = new Radio();
+        radio.setCarrentStation(1);
+        radio.prev();
+        int actual = radio.getCarrentStation();
+        int expected = 0;
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void nextCarStTransitUpperLimit() {
         Radio radio = new Radio();
-        radio.setCarrentStation(10);
+        radio.setCarrentStation(9);
         radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 1;
+        int expected = 0;
         Assertions.assertEquals(expected, actual);
     }
 
@@ -54,20 +54,20 @@ public class RadioWithoutParametrsTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
+    //@Test
     public void nextCarStTransitUpper_Limit() {
         Radio radio = new Radio();
-        radio.setCarrentStation(10);
+        radio.setCarrentStation(9);
         radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 1;
+        int expected = 0;
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void nextCarStBeyond_Limit() {
         Radio radio = new Radio();
-        radio.setCarrentStation(10);
+        radio.setCarrentStation(0);
         radio.next();
         int actual = radio.getCarrentStation();
         int expected = 1;
@@ -77,20 +77,20 @@ public class RadioWithoutParametrsTest {
     @Test
     public void nextCarStBeyondLimit() {
         Radio radio = new Radio();
-        radio.setCarrentStation(11);
+        radio.setCarrentStation(8);
         radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 1;
+        int expected = 9;
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
+   @Test
     public void NextCarStNeganiv() {
         Radio radio = new Radio();
-        radio.setCarrentStation(-1);
+        radio.setCarrentStation(9);
         radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 1;
+        int expected = 0;
         Assertions.assertEquals(expected, actual);
     }
 

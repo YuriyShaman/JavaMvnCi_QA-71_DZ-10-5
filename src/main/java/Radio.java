@@ -5,13 +5,16 @@ public class Radio {
     private int carrentStation;
     private int stationsCount;
 
+
     public Radio() {
-        this.minCarrentStation = 1;
-        this.maxCarrentStation = 10;
+
+        this.maxCarrentStation = 9;
+        this.minCarrentStation = 0;
+        carrentStation = minCarrentStation;
     }
 
     public Radio(int stationsCount) {
-        this.maxCarrentStation = stationsCount;
+        this.maxCarrentStation = stationsCount - 1;
     }
 
     public int getCarrentStation() {
@@ -19,28 +22,23 @@ public class Radio {
     }
 
     public void setCarrentStation(int carrentStation) {
-        if (carrentStation < stationsCount) {
-            return;
-        }
+
         if (carrentStation > maxCarrentStation) {
             return;
         }
         this.carrentStation = carrentStation;
-
-        System.out.println("Заданное Число Радиостанций    " + maxCarrentStation);
-        System.out.println("Переключение с Радиостанции №   " + carrentStation);
     }
 
     public void next() {
         if (carrentStation != maxCarrentStation) {
             carrentStation++;
         } else {
-            carrentStation = stationsCount + 1;
+            carrentStation = minCarrentStation;
         }
     }
 
     public void prev() {
-        if (carrentStation != stationsCount + 1) {
+        if (carrentStation != minCarrentStation) {
             carrentStation--;
         } else {
             carrentStation = maxCarrentStation;
