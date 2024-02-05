@@ -7,13 +7,12 @@ public class RadioWithParametrTest {
     @Test
     public void prevCarStTransitMinStation() {
         Radio radio = new Radio(15);
-        radio.setCarrentStation(1);
+        radio.setCarrentStation(0);
         radio.prev();
         int actual = radio.getCarrentStation();
-        int expected = 15;
+        int expected = 14;
         Assertions.assertEquals(expected, actual);
     }
-
     @Test
     public void prevCarStTransitMaxStation() {
         Radio radio = new Radio(15);
@@ -23,7 +22,6 @@ public class RadioWithParametrTest {
         int expected = 14;
         Assertions.assertEquals(expected, actual);
     }
-
     @Test
     public void prevCarStInrange() {
         Radio radio = new Radio(15);
@@ -33,17 +31,15 @@ public class RadioWithParametrTest {
         int expected = 4;
         Assertions.assertEquals(expected, actual);
     }
-
     @Test
     public void nextCarStUpperMaxStation() {
         Radio radio = new Radio(15);
-        radio.setCarrentStation(15);
+        radio.setCarrentStation(14);
         radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 1;
+        int expected = 0;
         Assertions.assertEquals(expected, actual);
     }
-
    @Test
     public void NextCarSt_0() {
         Radio radio = new Radio(15);
@@ -53,19 +49,8 @@ public class RadioWithParametrTest {
         int expected = 1;
         Assertions.assertEquals(expected, actual);
     }
-
     @Test
     public void nextCarStUpperMinStation() {
-        Radio radio = new Radio(15);
-        radio.setCarrentStation(1);
-        radio.next();
-        int actual = radio.getCarrentStation();
-        int expected = 2;
-        Assertions.assertEquals(expected, actual);
-    }
-
-       @Test
-    public void nextCarStInrange() {
         Radio radio = new Radio(15);
         radio.setCarrentStation(10);
         radio.next();
@@ -74,7 +59,9 @@ public class RadioWithParametrTest {
         Assertions.assertEquals(expected, actual);
     }
 
-      @Test
+
+
+    @Test
     public void UpVolume_0() {
         Radio radio = new Radio();
         radio.setCarrentVolume(0);
